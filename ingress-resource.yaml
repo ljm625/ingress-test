@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: google-fb-ingress
+spec:
+  rules:
+  - host: google.bench.debug.tech
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-google
+          servicePort: 80
+  - host: facebook.bench.debug.tech
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-facebook
+          servicePort: 80

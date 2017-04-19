@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-facebook
+  labels:
+    app: nginx-facebook
+spec:
+  containers:
+    - name: nginx-facebook
+      image: ljm625/nginx-facebook
+      ports:
+        - name: http
+          containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: "nginx-facebook"
+spec:
+  selector:
+    app: "nginx-facebook"
+  ports:
+    - protocol: "TCP"
+      port: 80
+
