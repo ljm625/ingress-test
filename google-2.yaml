@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-google-2
+  labels:
+    app: nginx-google-2
+spec:
+  containers:
+    - name: nginx-google
+      image: ljm625/nginx-google
+      ports:
+        - name: http
+          containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: "nginx-google-2"
+spec:
+  selector:
+    app: "nginx-google-2"
+  ports:
+    - protocol: "TCP"
+      port: 80
+

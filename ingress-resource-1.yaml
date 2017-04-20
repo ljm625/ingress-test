@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: google-2-ingress
+spec:
+  rules:
+  - host: gg.bench.debug.tech
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-google-2
+          servicePort: 80
